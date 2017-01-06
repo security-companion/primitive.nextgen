@@ -1,6 +1,8 @@
 # primitive.ele
 Electron port of the [primitive.js](https://github.com/ondras/primitive.js) / [primitive.lol](http://primitive.lol/) application.
 
+![logo](logo.png)
+
 ## How does it look?
 
 Check out the [Masterpieces](https://cielitolindo.de/albums/masterpieces/) gallery for several cool samples.
