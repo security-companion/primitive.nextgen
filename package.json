@@ -1,19 +1,21 @@
 {
-  "name": "primitive.js",
+  "name": "primitive.ele",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "start.js",
   "scripts": {
     "watch": "rollup -c -w",
     "js": "rollup -c",
-    "css": "lessc css/src/app.less > css/app.css"
+    "css": "lessc css/src/app.less > css/app.css",
+    "start": "electron start.js"
   },
-  "author": "",
+  "author": "Cielito Lindo Productions",
   "license": "MIT",
   "devDependencies": {
     "less": "^2.7.1",
     "rollup": "^0.36.3",
     "rollup-plugin-includepaths": "^0.1.6",
-    "rollup-watch": "^2.5.0"
+    "rollup-watch": "^2.5.0",
+    "electron-prebuilt": "^0.35.2"
   }
 }

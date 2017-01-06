@@ -11,6 +11,7 @@ Written in client-side JavaScript, uses Rollup for JS bundling and LESS for CSS 
 
   1. `git clone git@github.com:ondras/primitive.js.git`
   1. `npm install`
+  1. `npm start`
 
 ## License
 
