@@ -42,7 +42,9 @@ function difference(data, dataOther) {
 
 function computeColor(offset, imageData, alpha) {
 	let color = [0, 0, 0];
-	let {shape, current, target} = imageData;
+	let shape = imageData.shape;
+	let current = imageData.current;
+	let target = imageData.target;
 	let shapeData = shape.data;
 	let currentData = current.data;
 	let targetData = target.data;
@@ -78,7 +80,9 @@ function computeColor(offset, imageData, alpha) {
 }
 
 function computeDifferenceChange(offset, imageData, color) {
-	let {shape, current, target} = imageData;
+	let shape = imageData.shape;
+	let current = imageData.current;
+	let target = imageData.target;
 	let shapeData = shape.data;
 	let currentData = current.data;
 	let targetData = target.data;
@@ -235,7 +239,8 @@ class Canvas {
 		cfg.width = cfg.computeSize;
 		cfg.height = cfg.computeSize;
 		cfg.scale = 1;
-		let [w, h] = [cfg.width, cfg.height];
+		let w = cfg.width;
+		let h = cfg.height;
 
 		let canvas = new this(w, h);
 		canvas.fill("#fff");
@@ -353,13 +358,14 @@ class Polygon extends Shape {
 
 	render(ctx) {
 		ctx.beginPath();
-		this.points.forEach(([x, y], index) => {
-			if (index) {
-				ctx.lineTo(x, y);
-			} else {
-				ctx.moveTo(x, y);
-			}
-		});
+		let firstxy = this.points[0];
+		let secondxy = this.points[1];
+		let thirdxy = this.points[2];
+		
+		ctx.moveTo(firstxy[0], firstxy[1]);
+		ctx.lineTo(secondxy[0], secondxy[1]);
+		ctx.lineTo(thirdxy[0], thirdxy[1]);
+
 		ctx.closePath();
 		ctx.fill();
 	}
@@ -680,7 +686,7 @@ function getConfig() {
 
 /* State: target canvas, current canvas and a distance value */
 class State {
-	constructor(target, canvas, distance = Infinity) {
+	constructor(target, canvas, distance) {
 		this.target = target;
 		this.canvas = canvas;
 		this.distance = (distance == Infinity ? target.distance(canvas) : distance);
@@ -723,7 +729,9 @@ class Step {
 			target: state.target.getImageData()
 		};
 
-		let {color, differenceChange} = computeColorAndDifferenceChange(offset, imageData, this.alpha);
+		let returnValue = computeColorAndDifferenceChange(offset, imageData, this.alpha);
+		let color = returnValue.color;
+		let differenceChange = returnValue.differenceChange;
 		this.color = color;
 		let currentDifference = distanceToDifference(state.distance, pixels);
 		if (-differenceChange > currentDifference) debugger;
@@ -747,7 +755,7 @@ class Step {
 class Optimizer {
 	constructor(original, cfg) {
 		this.cfg = cfg;
-		this.state = new State(original, Canvas.empty(cfg));
+		this.state = new State(original, Canvas.empty(cfg), Infinity);
 		this._steps = 0;
 		this.onStep = () => {};
 		console.log("initial distance %s", this.state.distance);
