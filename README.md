@@ -11,7 +11,7 @@ Check out the [Masterpieces](https://cielitolindo.de/albums/masterpieces/) galle
 
 Written in client-side JavaScript, uses Rollup for JS bundling and LESS for CSS pre-processing.
 
-  1. `https://github.com/cielito-lindo-productions/primitive.ele.git`
+  1. `git clone https://github.com/cielito-lindo-productions/primitive.ele.git`
   1. `npm install`
   1. `npm start`
 
