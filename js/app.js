@@ -788,6 +788,17 @@ class Optimizer {
 			console.log("target distance %s", this.state.distance);
 			console.log("real target distance %s", this.state.target.distance(this.state.canvas));
 			console.log("finished in %s", time);
+			nodes.stats.innerHTML = nodes.stats.innerHTML + '<br>Finished calculating';
+			console.log('Finished calculating');
+			
+			var fs = require('fs');
+			console.log("nodes.vector=" + nodes.raster);
+			  fs.writeFile("C:/output.png", nodes.raster, (err) => {
+			if (err) {
+			  dialog.showErrorBox('Fehler beim Speichern', err.message);
+			  return;
+			}
+		  });
 		}
 	}
 
@@ -853,6 +864,7 @@ const nodes = {
 	steps: document.querySelector("#steps"),
 	raster: document.querySelector("#raster"),
 	vector: document.querySelector("#vector"),
+	stats: document.querySelector("#stats"),
 	vectorText: document.querySelector("#vector-text"),
 	types: Array.from(document.querySelectorAll("#output [name=type]"))
 };
@@ -861,6 +873,9 @@ let steps;
 
 function go(original, cfg) {
 	lock();
+
+	var os = require('os');
+	var prettyBytes = require('pretty-bytes');
 
 	nodes.steps.innerHTML = "";
 	nodes.original.innerHTML = "";
@@ -894,9 +909,12 @@ function go(original, cfg) {
 			nodes.vectorText.value = serializer.serializeToString(svg);
 			nodes.steps.innerHTML = `(${++steps} of ${cfg.steps}, ${percent}% similar)`;
 		}
+		nodes.stats.innerHTML="";
+		nodes.stats.innerHTML = nodes.stats.innerHTML + '<br>Number of cpu cores: <span>' + os.cpus().length + '</span>';
+		nodes.stats.innerHTML = nodes.stats.innerHTML + '<br>Free memory: <span>' + prettyBytes(os.freemem())+ '</span>';
 	};
 	optimizer.start();
-
+	console.log("finished2");
 	document.documentElement.scrollTop = document.documentElement.scrollHeight;
 }
 

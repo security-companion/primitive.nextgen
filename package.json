@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "start.js",
+  "dependencies": {
+    "pretty-bytes": "^2.0.1"
+  },  
   "scripts": {
     "watch": "rollup -c -w",
     "js": "rollup -c",
