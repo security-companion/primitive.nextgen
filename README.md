@@ -21,6 +21,5 @@ Written in client-side JavaScript, uses Rollup for JS bundling and LESS for CSS 
 
 ## TODO
 
-   1. Saving of converted image
    1. Batch-processing (Opening, processing and saving of several files at a time)
 
