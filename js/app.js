@@ -790,15 +790,28 @@ class Optimizer {
 			console.log("finished in %s", time);
 			nodes.stats.innerHTML = nodes.stats.innerHTML + '<br>Finished calculating';
 			console.log('Finished calculating');
-			
+
+			var remote = require('remote');
+			var dialog = remote.require('dialog');
 			var fs = require('fs');
-			console.log("nodes.vector=" + nodes.raster);
-			  fs.writeFile("C:/output.png", nodes.raster, (err) => {
-			if (err) {
-			  dialog.showErrorBox('Fehler beim Speichern', err.message);
-			  return;
-			}
-		  });
+			var content = nodes.raster.firstChild;
+			var canvasBuffer = require('electron-canvas-to-buffer');
+			var buffer = canvasBuffer(content, 'image/png');
+			dialog.showSaveDialog({defaultPath: "output.png"}, function(fileName) {
+			    if (fileName === undefined){
+				console.log("You didn't save the file");
+				return;
+			    }
+
+			    fs.writeFile(fileName, buffer, (err) => {
+				if(err){
+				    alert("An error ocurred creating the file "+ err.message)
+				}
+					    
+				alert("The file has been succesfully saved");
+			    });
+			});
+
 		}
 	}
 

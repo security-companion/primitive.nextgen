@@ -4,8 +4,9 @@
   "description": "",
   "main": "start.js",
   "dependencies": {
+    "electron-canvas-to-buffer": "^2.0.0",
     "pretty-bytes": "^2.0.1"
-  },  
+  },
   "scripts": {
     "watch": "rollup -c -w",
     "js": "rollup -c",
