@@ -1,7 +1,7 @@
 {
   "name": "primitive.nextgen",
   "version": "1.0.0",
-  "description": "",
+  "description": "drawing images with geometric primitives",
   "main": "start.js",
   "dependencies": {
     "electron-canvas-to-buffer": "^2.0.0",
@@ -16,10 +16,21 @@
   "author": "Cielito Lindo Productions",
   "license": "MIT",
   "devDependencies": {
+    "electron-builder": "^19.27.7",
+    "electron-prebuilt": "^0.35.2",
     "less": "^2.7.1",
     "rollup": "^0.36.3",
     "rollup-plugin-includepaths": "^0.1.6",
-    "rollup-watch": "^2.5.0",
-    "electron-prebuilt": "^0.35.2"
+    "rollup-watch": "^2.5.0"
+  },
+"scripts": {
+  "pack": "electron-builder --dir",
+  "dist": "electron-builder"
+},
+"build": {
+  "appId": "com.primitive.nextgen",
+  "mac": {
+    "category": "your.app.category.type"
   }
+}
 }
