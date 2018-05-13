@@ -20,6 +20,8 @@ Written in client-side JavaScript, uses Rollup for JS bundling and LESS for CSS 
 After the image is calculated you have 2 options to save the result:
  1. The first one which is selected by default is to save the generated image directly as an image file (option Raster image) - for this after calculating a "Save as" dialog shows up in which you can select the name and folder of the file
  1. Alternatively you can choose the option "vector image" and then copy&paste the image date from primitive.nextgen into a file with the ending .svg (eg. via Notepad++ or another text editor). Then open the .svg file in eg. inkscape, make some edits if you want and save the result as an image file with the ending .jpg, .png or any other format
+ 
+Hint: According to issue #2 there seem to occur problems on OS X devices with the first option, so please use the second option then.
 
 ## License
 
