@@ -18,9 +18,9 @@
   "author": "Cielito Lindo Productions",
   "license": "MIT",
   "devDependencies": {
-    "electron-builder": "^19.27.7",
+    "electron-builder": "^24.6.4",
     "electron-prebuilt": "^0.35.2",
-    "less": "^2.7.1",
+    "less": "^2.7.3",
     "rollup": "^0.36.3",
     "rollup-plugin-includepaths": "^0.1.6",
     "rollup-watch": "^2.5.0"
