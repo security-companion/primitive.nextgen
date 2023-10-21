@@ -5,7 +5,7 @@ Electron port of the [primitive.js](https://github.com/ondras/primitive.js) / [p
 
 ## How does it look?
 
-Check out the [Masterpieces](https://cielitolindo.de/albums/masterpieces/) gallery for several cool samples.
+Check out the [Masterpieces](https://cielitolindo.de/album/masterpieces/) gallery for several cool samples.
 
 ## Building
 
