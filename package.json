@@ -1,31 +1,31 @@
 {
   "name": "primitive.nextgen",
-  "version": "1.0.0",
+  "productName": "primitive.nextgen",
+  "version": "2.0.0",
   "description": "drawing images with geometric primitives",
-  "main": "start.js",
-  "dependencies": {
-    "electron-canvas-to-buffer": "^2.0.0",
-    "pretty-bytes": "^2.0.1"
-  },
+  "main": "src/index.js",
   "scripts": {
-    "watch": "rollup -c -w",
-    "js": "rollup -c",
-    "css": "lessc css/src/app.less > css/app.css",
-    "start": "electron start.js",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
   },
-  "author": "Cielito Lindo Productions",
+  "keywords": [],
+  "author": {
+    "name": "security-companion"
+  },
   "license": "MIT",
-  "devDependencies": {
-    "electron-builder": "^19.27.7",
-    "electron-prebuilt": "^0.35.2",
-    "less": "^2.7.1",
-    "rollup": "^0.36.3",
-    "rollup-plugin-includepaths": "^0.1.6",
-    "rollup-watch": "^2.5.0"
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
   },
-  "build": {
-    "appId": "com.cielito-lindo-productions.primitive.nextgen"
+  "devDependencies": {
+    "@electron-forge/cli": "^6.4.2",
+    "@electron-forge/maker-deb": "^6.4.2",
+    "@electron-forge/maker-rpm": "^6.4.2",
+    "@electron-forge/maker-squirrel": "^6.4.2",
+    "@electron-forge/maker-zip": "^6.4.2",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
+    "electron": "27.0.2"
   }
 }

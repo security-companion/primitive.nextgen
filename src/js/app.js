@@ -791,7 +791,7 @@ class Optimizer {
 			nodes.stats.innerHTML = nodes.stats.innerHTML + '<br>Finished calculating';
 			console.log('Finished calculating');
 
-			var remote = require('remote');
+			/*var remote = require('remote');
 			var dialog = remote.require('dialog');
 			var fs = require('fs');
 			var content = nodes.raster.firstChild;
@@ -810,7 +810,7 @@ class Optimizer {
 					    
 				alert("The file has been succesfully saved");
 			    });
-			});
+			});*/
 
 		}
 	}
@@ -887,8 +887,8 @@ let steps;
 function go(original, cfg) {
 	lock();
 
-	var os = require('os');
-	var prettyBytes = require('pretty-bytes');
+	//var os = require('os');
+	//var prettyBytes = require('pretty-bytes');
 
 	nodes.steps.innerHTML = "";
 	nodes.original.innerHTML = "";
@@ -923,8 +923,8 @@ function go(original, cfg) {
 			nodes.steps.innerHTML = `(${++steps} of ${cfg.steps}, ${percent}% similar)`;
 		}
 		nodes.stats.innerHTML="";
-		nodes.stats.innerHTML = nodes.stats.innerHTML + '<br>Number of cpu cores: <span>' + os.cpus().length + '</span>';
-		nodes.stats.innerHTML = nodes.stats.innerHTML + '<br>Free memory: <span>' + prettyBytes(os.freemem())+ '</span>';
+		/*nodes.stats.innerHTML = nodes.stats.innerHTML + '<br>Number of cpu cores: <span>' + os.cpus().length + '</span>';
+		nodes.stats.innerHTML = nodes.stats.innerHTML + '<br>Free memory: <span>' + prettyBytes(os.freemem())+ '</span>';*/
 	};
 	optimizer.start();
 	console.log("finished2");
