@@ -31,3 +31,6 @@ Hint: According to issue #2 there seem to occur problems on OS X devices with th
 
    1. Batch-processing (Opening, processing and saving of several files at a time)
 
+## Additional resources
+	[Github Publishing](https://sevic.dev/notes/electron-forge-publish-github/)
+
