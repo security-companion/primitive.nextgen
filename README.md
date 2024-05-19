@@ -34,3 +34,5 @@ Hint: According to issue #2 there seem to occur problems on OS X devices with th
 ## Additional resources
 	[Github Publishing](https://sevic.dev/notes/electron-forge-publish-github/)
 
+## Hints
+Rebuild package-lock.json with `npm i --package-lock-only`
