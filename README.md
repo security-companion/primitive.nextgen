@@ -36,3 +36,9 @@ Hint: According to issue #2 there seem to occur problems on OS X devices with th
 
 ## Hints
 Rebuild package-lock.json with `npm i --package-lock-only`
+
+## Create a new release
+
+  1. Adapt version in package.json
+  1. Create tag with same version
+  1. Start action with "Run workflow" and Use workflow from new version tag
